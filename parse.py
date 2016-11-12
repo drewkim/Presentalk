@@ -22,6 +22,12 @@ def f3(line):
       num = '?'
   return "moving to slide number " + str(num)
 
+def f4(line, d):
+  index = line.find('go to')
+  words = line.split()
+  word = words[words.index('slide')+3]
+  return 'moving to slide number ' + str(d[word])
+
 
 # Returns an integer from a string
 def text2int(textnum, numwords={}):
@@ -56,13 +62,16 @@ def text2int(textnum, numwords={}):
 
 
 trigger = 'slide'
-keywords = {'next': f1, 'forward': f1, 'last': f2, 'previous': f2,  'back': f2, 'go to slide': f3}
+keywords = {'next': f1, 'forward': f1, 'last': f2, 'previous': f2,  'back': f2, 'go to slide': f3, 'go to the slide with the': f4}
 
 # Returns parsed voice command
-def parse():
+def parse(d):
   line = voice.send_words()
   if line:
     for word in keywords.keys():
       if word in line and trigger in line:
-        return keywords[word](line)
+        if word == 'go to the slide with the':
+          return keywords[word](line,d)
+        else:
+          return keywords[word](line)
   return ""

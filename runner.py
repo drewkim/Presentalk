@@ -2,6 +2,7 @@ import parse
 import threading
 import time
 from flask import Flask
+import init_imgs
 
 app = Flask(__name__)
 
@@ -17,6 +18,7 @@ class ThreadingExample(object):
         :type interval: int
         :param interval: Check interval, in seconds
         """
+        self.images = init_imgs.get()
         self.interval = interval
         thread = threading.Thread(target=self.run, args=())
         thread.daemon = True                            # Daemonize thread
@@ -27,7 +29,7 @@ class ThreadingExample(object):
         while True:
             # Do something
             print('Doing something imporant in the background')
-            current = parse.parse()
+            current = parse.parse(self.images)
             if current:
             	self.current_parsed = current
             time.sleep(self.interval)
