@@ -6,19 +6,20 @@
 
 import speech_recognition as sr
 import os
-from flask import Flask
 
-app = Flask(__name__)
 
 # obtain audio from the microphone
 r = sr.Recognizer()
 r.pause_threshold = 0.5
+r.energy_threshold = 1000 #Adjust to microphone
 
-@app.route('/')
 def send_words():
     with sr.Microphone() as source:
         print(">>>")
-        audio = r.listen(source, timeout = 3)
+        try:
+            audio = r.listen(source, timeout = 3)
+        except:
+            return None
 
     # recognize speech using Google Speech Recognition
     try:
