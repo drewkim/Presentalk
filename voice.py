@@ -11,13 +11,15 @@ import os
 # obtain audio from the microphone
 r = sr.Recognizer()
 r.pause_threshold = 0.5
-r.energy_threshold = 1000 # Adjust to ambient noise (this is high, requires personal mic)
+r.energy_threshold = 2000 # Adjust to ambient noise (this is high, requires personal mic)
 
 def send_words():
+    words = ""
     with sr.Microphone() as source:
         print(">>>")
         try:
             audio = r.listen(source, timeout = 3)
+            print("done recording")
         except:
             return None
 
@@ -34,13 +36,14 @@ def send_words():
     except sr.RequestError as e:
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
-    # recognize speech using IBM Speech to Text
-    IBM_USERNAME = "11702311-ff64-438e-98d5-c911a38d826d" # IBM Speech to Text usernames are strings of the form XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    IBM_PASSWORD = "PXss8FokhHZ4" # IBM Speech to Text passwords are mixed-case alphanumeric strings
-    try:
-        words = r.recognize_ibm(audio, username=IBM_USERNAME, password=IBM_PASSWORD)
-        return words
-    except sr.UnknownValueError:
-        print("IBM Speech to Text could not understand audio")
-    except sr.RequestError as e:
-        print("Could not request results from IBM Speech to Text service; {0}".format(e))
+    if not words:
+         # recognize speech using IBM Speech to Text
+        IBM_USERNAME = "11702311-ff64-438e-98d5-c911a38d826d" # IBM Speech to Text usernames are strings of the form XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        IBM_PASSWORD = "PXss8FokhHZ4" # IBM Speech to Text passwords are mixed-case alphanumeric strings
+        try:
+            words = r.recognize_ibm(audio, username=IBM_USERNAME, password=IBM_PASSWORD)
+            return words
+        except sr.UnknownValueError:
+            print("IBM Speech to Text could not understand audio")
+        except sr.RequestError as e:
+            print("Could not request results from IBM Speech to Text service; {0}".format(e))
