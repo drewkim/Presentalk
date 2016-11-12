@@ -26,7 +26,7 @@ def f3(line):
   return "moving to slide number " + str(num)
 
 
-# Util Functions
+# Returns an integer from a string
 def text2int(textnum, numwords={}):
     if not numwords:
       units = [
@@ -61,9 +61,9 @@ def text2int(textnum, numwords={}):
 trigger = 'slide'
 keywords = {'next': f1, 'forward': f1, 'last': f2, 'previous': f2,  'back': f2, 'go to slide': f3}
 
-# where all the magic happens
-@app.route('/')
-def magic():
+# Starts parsing
+@app.route('/parse/')
+def parse():
   line = voice.send_words()
   if line:
     for word in keywords.keys():
