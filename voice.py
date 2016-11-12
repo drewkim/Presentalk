@@ -6,15 +6,15 @@
 
 import speech_recognition as sr
 import os
-import parse
 
 # obtain audio from the microphone
 r = sr.Recognizer()
+r.pause_threshold = 0.4
 
 def send_words():
     with sr.Microphone() as source:
-        print("Say something!")
-        audio = r.listen(source)
+        print(">>>")
+        audio = r.listen(source, timeout = 3)
 
     # recognize speech using Google Speech Recognition
     try:
