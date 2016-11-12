@@ -1,5 +1,6 @@
 import voice
-from flask import Flask
+from flask import Flask, flash
+import threading
 
 # Command Functions
 app = Flask(__name__)
@@ -61,8 +62,16 @@ def text2int(textnum, numwords={}):
 trigger = 'slide'
 keywords = {'next': f1, 'forward': f1, 'last': f2, 'previous': f2,  'back': f2, 'go to slide': f3}
 
-# Starts parsing
-@app.route('/parse/')
+# current_parsed = ""
+# while True:
+#   current_parsed = parse()
+
+# def display():
+#   return current
+
+
+# Returns parsed voice command
+@app.route('/display/')
 def parse():
   line = voice.send_words()
   if line:
@@ -70,3 +79,7 @@ def parse():
       if word in line and trigger in line:
         return keywords[word](line)
   return ""
+
+
+if __name__ == '__main__':
+  app.run()
