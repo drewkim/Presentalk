@@ -30,10 +30,13 @@ while True:
         # instead of `r.recognize_google(audio)`
         words = r.recognize_google(audio)
         print(words)
-        if "next" in words:
-            os.system(cmd_next)
-        elif "last" in words or "previous" in words:
-            os.system(cmd_last)
+        with open('speech.txt', 'w') as file:
+            file.write(words)
+        os.system('python3 parse.py')
+        #if "next" in words:
+        #    os.system(cmd_next)
+        #elif "last" in words or "previous" in words:
+        #    os.system(cmd_last)
 
     except sr.UnknownValueError:
         print("Google Speech Recognition could not understand audio")
