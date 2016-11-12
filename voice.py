@@ -6,19 +6,12 @@
 
 import speech_recognition as sr
 import os
-
+import parse
 
 # obtain audio from the microphone
 r = sr.Recognizer()
-cmd_next = """
-osascript -e 'tell application "System Events" to keystroke "next"'
-"""
 
-cmd_last = """
-osascript -e 'tell application "System Events" to keystroke "last"'
-"""
-
-while True:
+def send_words():
     with sr.Microphone() as source:
         print("Say something!")
         audio = r.listen(source)
@@ -28,16 +21,9 @@ while True:
         # for testing purposes, we're just using the default API key
         # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
         # instead of `r.recognize_google(audio)`
-        words = r.recognize_google(audio)
-        print(words)
-        with open('speech.txt', 'w') as file:
-            file.write(words)
-        os.system('python3 parse.py')
-        #if "next" in words:
-        #    os.system(cmd_next)
-        #elif "last" in words or "previous" in words:
-        #    os.system(cmd_last)
 
+        words = r.recognize_google(audio)
+        return words
     except sr.UnknownValueError:
         print("Google Speech Recognition could not understand audio")
     except sr.RequestError as e:
