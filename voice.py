@@ -11,7 +11,7 @@ import os
 # obtain audio from the microphone
 r = sr.Recognizer()
 r.pause_threshold = 0.5
-r.energy_threshold = 4000 # Adjust to ambient noise (this is high, requires personal mic)
+r.energy_threshold = 1000 # Adjust to ambient noise (this is high, requires personal mic)
 
 def send_words():
     with sr.Microphone() as source:
