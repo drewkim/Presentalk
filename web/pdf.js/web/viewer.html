@@ -66,6 +66,30 @@ See https://github.com/adobe-type-tools/cmap-resources
 
 <!--#if !MINIFIED -->
     <script src="viewer.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+        console.log("Test");
+        $(".fancybox").fancybox();
+
+        setTimeout(function(){
+          //$("#next").click();
+          //$("#pageNumber").val(4);
+          //$("#pageNumber").trigger("change");
+          window.location.hash = '#page=1';
+          //$("#presentationMode").trigger("click");
+        }, 2000);
+
+      });
+    </script>
 <!--#else-->
 <!--#include viewer-snippet-minified.html-->
 <!--#endif-->
@@ -73,7 +97,10 @@ See https://github.com/adobe-type-tools/cmap-resources
   </head>
 
   <body tabindex="1" class="loadingInProgress">
+
     <div id="outerContainer">
+
+      <a class="fancybox" rel="group" href="https://www.ocf.berkeley.edu/~atwu/firstcultural/ucbcampus/mainmap.gif"><img src="https://www.ocf.berkeley.edu/~atwu/firstcultural/ucbcampus/mainmap.gif" alt="" /></a>
 
       <div id="sidebarContainer">
         <div id="toolbarSidebar">
@@ -356,7 +383,9 @@ See https://github.com/adobe-type-tools/cmap-resources
               <button id="documentPropertiesClose" class="overlayButton"><span data-l10n-id="document_properties_close">Close</span></button>
             </div>
           </div>
+
         </div>
+
 <!--#if !(FIREFOX || MOZCENTRAL)-->
         <div id="printServiceOverlay" class="container hidden">
           <div class="dialog">
