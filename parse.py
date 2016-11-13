@@ -62,7 +62,7 @@ def zoom(line, d): # given any picture, find its filepath
     word = words[words.index('zoom')+4]
   n = d[word]
   os.system('cp parser/slide'+str(n)+'/*.jpg viewer/assets/'+word+'.jpg')
-  return word+'.jpg'
+  return '/assets/'+word+'.jpg'
 
 
 # Returns an integer from a string
