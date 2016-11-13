@@ -1,4 +1,5 @@
 import voice
+import re
 
 # Command Functions
 def f1(line):
@@ -62,15 +63,16 @@ def text2int(textnum, numwords={}):
 
 
 trigger = 'slide'
-keywords = {'next': f1, 'forward': f1, 'last': f2, 'previous': f2,  'back': f2, 'go to slide': f3, 'go to the slide with the': f4}
+# regular expressions
+keywords = {'next': f1, 'forward': f1, 'last': f2, 'previous': f2,  'back a slide': f2, 'go.*to slide.*\d': f3, 'go to.*slide with the \w': f4}
 
 # Returns parsed voice command
 def parse(d):
   line = voice.send_words()
   if line:
     for word in keywords.keys():
-      if word in line and trigger in line:
-        if word == 'go to the slide with the':
+      if re.search(word, line) and trigger in line:
+        if word == 'go to.*slide with the \w':
           return keywords[word](line,d)
         else:
           return keywords[word](line)

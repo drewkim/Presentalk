@@ -18,7 +18,8 @@ class ThreadingExample(object):
         :type interval: int
         :param interval: Check interval, in seconds
         """
-        self.images = init_imgs.get()
+        #self.images = init_imgs.get() # save API calls for now
+        self.images = None
         self.interval = interval
         thread = threading.Thread(target=self.run, args=())
         thread.daemon = True                            # Daemonize thread

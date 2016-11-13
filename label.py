@@ -29,6 +29,7 @@ Run the script on an image to get a label, E.g.:
 # [START import_libraries]
 import argparse
 import base64
+import os
 
 from googleapiclient import discovery
 from oauth2client.client import GoogleCredentials
@@ -39,6 +40,7 @@ def main(photo_file):
     """Run a label request on a single image"""
 
     # [START authenticate]
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "Presentalk-e0eb7b7c46fb.json"
     credentials = GoogleCredentials.get_application_default()
     service = discovery.build('vision', 'v1', credentials=credentials)
     # [END authenticate]
