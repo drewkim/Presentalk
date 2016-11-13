@@ -11,7 +11,7 @@ def get():
 		os.system('ls parser/slide'+str(i)+'/*.jpg > tmp.txt')
 		with open('tmp.txt') as fh:
 			for line in fh:
-				filepath = 'parser/slide'+str(i)+'/'+line.rstrip()
+				filepath = line.rstrip()
 				os.system('./label.py '+filepath+' > tmp2.txt')
 				with open('tmp2.txt') as fh2:
 					d[fh2.readlines()[0].split()[2]] = i

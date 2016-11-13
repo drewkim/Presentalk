@@ -55,6 +55,7 @@ def search(line, d): # return first instance of slide with this text
   return 0
 
 def zoom(line, d): # given any picture, find its filepath
+  print('called!')
   words = line.split()
   word = words[words.index('picture')+3]
   n = d[word]
@@ -97,6 +98,7 @@ def text2int(textnum, numwords={}):
 trigger = 'slide'
 trigger2 = 'show'
 trigger3 = 'search'
+trigger4 = 'zoom'
 # regular expressions
 keywords = {'next': next_slide,
             'forward': next_slide,
@@ -116,7 +118,7 @@ def parse(d1, d2):
   print(line)
   if line:
     for word in keywords.keys():
-      if re.search(word, line) and (trigger in line or trigger2 in line or trigger3 in line):
+      if re.search(word, line) and (trigger in line or trigger2 in line or trigger3 in line or trigger4 in line):
         if word == 'go to.*slide with the \w' or word == 'zoom in.*picture of the':
           return keywords[word](line,d1)
         elif word == 'go to the slide titled \w+' or word == 'search for \w+':

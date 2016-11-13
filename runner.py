@@ -47,7 +47,7 @@ class ThreadingExample(object):
                     else:
                         self.d['current_slide'] = current
                     time.sleep(self.interval)
-                print(self.d['current_slide'], self.d['url'])
+            print(self.d['current_slide'], self.d['url'])
 
 
 example = ThreadingExample()
