@@ -1,5 +1,6 @@
-Other technologies
- The PDFMiner package scrapes text and images from the slides to power the ML image search and text search, e.g. go to the Voice Control slide
- Flask framework controls web infrastructure for the Python back-end  Commands are parsed using regular expressions
+The Requirements
+ Passion for helping others develop their careers and develop professionally  Available to attend meetings each Tuesday at lunch  Available to attend bi-weekly leadership meetings (time TBD)  Available to support all CAPDS events, in attendance and in planning efforts  Professionalism as seen in application and in general
+communication--crucial that the team embodies the skills that CAPDS seeks to teach  Some preference given to those who have attended meetings consistently, but we will still look for the best person for the job  Open to creatively develop the club and its events
+6
 
 

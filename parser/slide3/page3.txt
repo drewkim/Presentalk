@@ -1,7 +1,10 @@
-Voice Control
- Uses the Python SpeechRecognition library
- Defaults to Google Speech Recognition API  Backup is IBM Watson Speech to Text
- Thanks to multithreading, microphone is always active in the background  Commands require the trigger "slide" to avoid accidentally changing slides  Can go forward, back, or to a specific slide number  Examples:
- "Go back a slide"  "Go to the next slide"  "Go to slide number 4"
+Beginning Objectives for Next Year
+ Maintain a website with career resources
+ Plan and host second annual Career Workshop
+ Host vocation workshop with larger number of students and volunteers
+ Begin internship process in beginning of the year, develop resumes throughout, and make matches during regular hiring period
+ Begin an online presence within
+
+4
 
 

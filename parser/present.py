@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 import os
 import sys
 from PyPDF2 import PdfFileWriter, PdfFileReader
-UPLOAD_FOLDER = '/Users/Drew/Documents/School/Berkeley/year1/calhacks/CalHacksBowles2016/viewer'
+UPLOAD_FOLDER = '../viewer'
 ALLOWED_EXTENSIONS = set(['pdf'])
 
 app = Flask(__name__)
@@ -82,6 +82,10 @@ def upload_file():
             print(filename)
             print(file_name)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            os.rename('/Users/Drew/Documents/School/Berkeley/year1/calhacks/CalHacksBowles2016/viewer/{0}'.format(filename), 'file.pdf')
+            filename = 'file.pdf'
+            file_name = 'file.pdf'
+            # file.save(os.path.join(app.config['~/Documents/Github/CalHacksBowles2016/parser'], filename))
             return redirect(url_for('.parse'))
     return render_template('up.html')
 
