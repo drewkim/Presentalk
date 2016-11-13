@@ -1,15 +1,17 @@
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
-UPLOAD_FOLDER = '/Users/Drew/Documents/School/Berkeley/year1/calhacks/CalHacksBowles2016/parser'
+#import pdf2txt
+import os
+import sys
+from PyPDF2 import PdfFileWriter, PdfFileReader
+UPLOAD_FOLDER = os.getcwd()
 ALLOWED_EXTENSIONS = set(['pdf'])
 
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-import pdf2txt
-import os
-import sys
+
 
 file_name = ''
 
@@ -17,7 +19,7 @@ file_name = ''
 def parse():
 
     open('output.txt', 'w').close()
-    os.system('pdf2txt.py -o output.txt ' + file_name)
+    #os.system('pdf2txt.py -o output.txt ' + file_name)
     output = open('output.txt', 'r+')
     words = {}
     lst = []
@@ -27,16 +29,28 @@ def parse():
             words[pg] = lst
             lst = []
 
-            print("python2.7 split.py {0} {1}".format(file_name, pg))
-            os.system("python2.7 split.py {0} {1}".format(file_name, pg))
-            print("python2.7 extractor.py tmp/placeholder.pdf {1}".format(pg))
-            os.system("python2.7 extractor.py tmp/placeholder.pdf {1}".format(pg))
-
-
+            #print("python2.7 split.py {0} {1}".format(file_name, pg))
+            #os.system("python2.7 split.py {0} {1}".format(file_name, pg))
+            #print("python2.7 extractor.py tmp/placeholder.pdf {1}".format(pg))
+            #os.system("python2.7 extractor.py tmp/placeholder.pdf {1}".format(pg))
 
         except:
-            print("whaaaaat")
+            #print("whaaaaat")
             lst += line.split()
+    # EXTRACT IMAGES
+
+    #step1 - splitpdf
+    inputpdf = PdfFileReader(open(file_name, "rb"))
+    os.system('rm -r slide*')
+    for i in range(inputpdf.numPages):
+        output = PdfFileWriter()
+        output.addPage(inputpdf.getPage(i))
+        os.system('mkdir slide'+str(i+1))
+        with open("slide"+str(i+1)+"/page"+str(i+1)+".pdf", "wb") as outputStream: #slide1/page1.pdg
+            output.write(outputStream)
+    for i in range(1,inputpdf.numPages+1):
+        os.system('pdfimages -j slide'+str(i)+'/page'+str(i)+'.pdf slide'+str(i)+'/foo')
+        os.system('rm slide'+str(i)+'/page'+str(i)+'.pdf')
     print(words)
 
     return 'Success'
