@@ -47,9 +47,9 @@ example = ThreadingExample()
 def display():
 	return jsonify(example.current_slide)
 
-# @app.route('/viewer/')
-# def viewer():
-#     return 'test'
+@app.route('/viewer/')
+def viewer():
+    return app.send_static_file('viewer.html')
 
 time.sleep(3)
 print('Checkpoint')
