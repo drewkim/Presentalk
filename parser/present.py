@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 import os
 import sys
 from PyPDF2 import PdfFileWriter, PdfFileReader
-UPLOAD_FOLDER = os.getcwd()
+UPLOAD_FOLDER = '/Users/Drew/Documents/School/Berkeley/year1/calhacks/CalHacksBowles2016/viewer'
 ALLOWED_EXTENSIONS = set(['pdf'])
 
 app = Flask(__name__)
