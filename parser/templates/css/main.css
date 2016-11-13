@@ -1,0 +1,388 @@
+html, body {
+	width:100%;
+	height:100%;
+	margin: auto;
+}
+
+.containercontent {
+	width: 800px;
+	margin: 0 auto; 
+	font-family: 'Oswald', sans-serif;	
+	font-size: 24px;
+	text-align: center;
+	padding-top: 90px;
+	padding-bottom: 90px;
+}
+
+.containercontent hr {
+	color: rgb(184,184,184);
+	background-color: rgb(184,184,184);
+}
+
+.containercontent p {
+	font-weight: 300;
+}
+
+hr {
+	height: 3px;
+	border: 0px;
+	margin-bottom: 40px;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+} 
+
+.containerheader {
+	width: 96%;
+	margin: 0 auto; 
+	font-family: 'Oswald', sans-serif;	
+	font-size: 15px;
+	color: #bcbcbc;
+}
+
+.header {
+	width: 100%;
+	top: 100;
+	height: 55px;
+	position: fixed;
+	z-index: 10;
+	transition: top 0.2s ease-in-out;
+  	/*box-shadow: 0px 5px 5px #565656;*/
+  	border-bottom: 1px solid rgb(212,212,212);
+  	color: #bcbcbc;
+}
+
+.filler {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	float:left;
+}
+
+.content {
+	width: 100%;
+	background: rgb(76,189,223);
+	position:  relative;
+	color: #ffffff;
+	float:left;
+	z-index: 2;
+}
+
+.app {
+	background: #ffffff;
+	font-family: 'Oswald', sans-serif;	
+	border-bottom: 1px solid #bcbcbc;
+	position: relative;
+	float:left;
+	padding: 150px 600px 150px 50px;
+	z-index: 2;
+}
+
+.app h2 {
+	color: rgb(76,189,223);
+}
+
+.app p {
+	font-weight: 300;
+	font-size: 20px;
+}
+
+.containerourwork {
+	width: 100%;
+	margin: 0 auto; 
+	font-family: 'Oswald', sans-serif;	
+	font-size: 25px;
+}
+
+.viewPort {
+	position: relative;
+	float: left;
+	height: 600px;
+	width: 100%;
+	background: #fff;
+	z-index: 0;
+}
+
+.blackoutParallax {
+	background: url(images/blackoutparallax.png) no-repeat;
+  	position: fixed;
+  	width: 900px;
+  	height: 500%;
+  	z-index: 1;
+}
+
+
+.scrapsParallax {
+	background: url(images/scrapsparallax.png) no-repeat;
+  	position: fixed;
+  	width: 900px;
+  	height: 500%;
+  	z-index: 1;
+}
+
+.containerteam {
+	background: rgb(76, 189, 223);
+	width: 100%;
+	font-family: 'Oswald', sans-serif;	
+	position:  relative;
+	float:left;	
+	padding-bottom: 60px; 
+	z-index: 2;
+}
+
+.containerteam h1 {
+	color: #ffffff;
+}
+
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-bottom: 30px solid #ffffff;
+}
+
+#team div {
+    background: rgb(217, 223, 190);
+    width: 100%;
+    margin: auto;
+	position:  relative;
+	float:left;	
+}
+
+#team > div{
+	background: #ffffff;
+    width: 960px;
+	margin: auto; 
+	font-family: 'Oswald', sans-serif;	
+	font-size: 30px;
+    height:530px;
+}
+
+#team div:first-child {
+    display:block;
+}
+
+.bio {
+	background: #ffffff;
+	width: 100%;
+	font-family: 'Oswald', sans-serif;	
+	position:  relative;
+	float:left;	
+	text-align: center;
+	padding: 50px 0px;
+	z-index: 2;
+}
+
+.containerbio {
+	width: 900px;
+	margin: 30px auto;
+
+	color: rgb(76, 189, 223);
+	font-size: 25pt;
+	font-weight: 300;
+}
+
+.contact {
+	background: rgb(184,184,184);
+	width: 100%;
+	font-family: 'Oswald', sans-serif;	
+	position: relative;
+	float: left;
+	padding: 50px 0px 0px 0px;
+	z-index: 2;
+}
+
+.containercontact {
+	background: rgb(184,184,184);
+	width: 30%;
+	margin: 0 auto;
+	font-family: 'Oswald', sans-serif;	
+	color: #ffffff;
+}
+
+.containercontact p {
+	font-weight: 400;
+	font-size: 30px;
+}
+
+.contact p {
+	text-align: center;
+	font-weight: 300;
+}
+
+.navFooter {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.footer {
+	width: 100%;
+	height: 75px;
+	background: #ffffff;
+	position: relative;
+	float: left;
+	color: rgb(76,189,223);
+	font-weight: 300;
+	z-index: 2;
+}
+
+#bannerPic {
+	width: 100%;
+	background: url(images/sf.jpg) center 0 no-repeat fixed;
+	background-size: cover;
+	position: fixed;
+	z-index: 0;
+	top: 0px;
+	height: 100%;
+	font-size: 54px;
+	font-family: 'Oswald', sans-serif;	
+	font-weight: bold;
+	color: #ffffff;
+	text-align:center;
+}
+
+/*#planPic {
+	opacity:0.0; 
+	left: -15%; 
+	top: 20%; 
+	position:fixed;
+}
+
+#planText {
+	opacity:0.0; 
+	left: 22%; 
+	top: 40%; 
+	position:fixed;
+}
+
+#buildPic {
+	opacity:0.0; 
+	left: 40%; 
+	top: -30%; 
+	position:fixed;
+}
+
+#buildText {
+	opacity:0.0; 
+	left: 44%; 
+	top: 40%;
+	position:fixed;
+}
+
+#launchPic {
+	opacity:0.0; 
+	left: 100%; 
+	top: 20%; 
+	position:fixed;
+}
+
+#launchText {
+	opacity:0.0; 
+	left: 62%; 
+	top: 40%; 
+	position:fixed;
+}
+*/
+
+#title-banner {
+	width: 70%;
+	margin: 0 auto;
+	height: 60%;
+	font-weight: 400;
+	font-family: 'Oswald', sans-serif;	
+	position: relative;
+	display:block;
+	padding-top: 12%;
+}
+
+#title-banner h1 {
+	font-weight: 400;
+	font-size: 60px; 
+	color: rgb(76,189,223);
+}
+
+#title-banner hr {
+	color: #fff;
+	background-color: #fff;
+}
+
+#title-banner p {
+	font-weight: 300;
+	font-size: 35px;
+}
+
+#infoText {
+		position:  relative;
+
+}
+
+#learnMore {
+	opacity:0.0; 
+	top:85%; 
+	position:fixed; 
+	font-size:28px;
+
+	width:100%;
+	margin: 0 auto;
+	font-family: "Oswald", sans-serif; 
+   	font-weight: 300;
+}
+
+#learnMore a {
+	color: rgb(76,189,223);
+}
+
+.logo {
+	float: left;
+	font-family: 'Oswald', sans-serif;	
+	padding: 12px 0px;
+}
+
+.copyright {
+	float: left;
+	font-family: 'Oswald', sans-serif;	
+	font-size: 20px;
+	padding-left: 20px;
+	padding-top: 25px;
+}
+
+h1 a {
+	color: rgb(76,189,223);
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited { 
+	text-decoration: none;
+}
+
+.logoLink {
+	text-decoration: none;
+	color: #fff;
+	font-weight: 700;
+	font-size: 22px;
+}
+
+.navLink {
+	text-decoration: none;
+	color: #fff;
+	font-weight: 400;
+	font-size: 15px;
+}
+
+li {
+	list-style: none;
+	float: left;
+	margin-top: 5px;
+    margin-right: 15px;
+    margin-left: 15px;
+	font-family: 'Oswald', sans-serif;
+}
+
+.nav {
+	float: right;
+}
