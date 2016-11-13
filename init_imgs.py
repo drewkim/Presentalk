@@ -2,6 +2,7 @@
 import os
 
 def get():
+	os.system('export GOOGLE_APPLICATION_CREDENTIALS=\'Presentalk-e0eb7b7c46fb.json\'')
 	d = dict()
 	os.system('ls | grep slide | wc -l > tmp.txt')
 	with open('tmp.txt') as fh:
