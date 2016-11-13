@@ -4,6 +4,7 @@ import time
 from flask import Flask, jsonify
 import init_imgs
 import init_text
+import os
  
 app = Flask(__name__)
 
@@ -24,6 +25,7 @@ class ThreadingExample(object):
         self.images = init_imgs.get() # save API calls for now
         #self.images = {'dog':2, 'cat':4}
         self.text = init_text.get()
+        os.system('cp parser/file.pdf viewer')
         #self.text = {'Presentalk\nBy Graham, Chanan, Drew, Ryan, and Kyle\n\n\x0c':1, 'Voice Control\n Uses the Python SpeechRecognition library\n Defaults to Google Speech Recognition API  Backup is IBM Watson Speech to Text\n Thanks to multithreading, microphone is always active in the background  Commands require the trigger "slide" to avoid accidentally changing slides  Can go forward, back, or to a specific slide number  Examples:\n "Go back a slide"  "Go to the next slide"  "Go to slide number 4"\n\n\x0c':3}
         self.interval = interval
         thread = threading.Thread(target=self.run, args=())
