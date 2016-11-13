@@ -3,10 +3,10 @@ import re
 
 # Command Functions
 def f1(line):
-	return "*go to next slide*"
+	return -1
 
 def f2(line):
-	return "*go to previous slide*"
+	return -2
 
 def f3(line):
   index = line.find('go to')
@@ -21,13 +21,13 @@ def f3(line):
       num = int(words[words.index('slide')+1]) # 'go to slide x'
     except:
       num = '?'
-  return "moving to slide number " + str(num)
+  return num
 
 def f4(line, d):
   index = line.find('go to')
   words = line.split()
   word = words[words.index('slide')+3]
-  return 'moving to slide number ' + str(d[word])
+  return d[word]
 
 
 # Returns an integer from a string
@@ -76,4 +76,4 @@ def parse(d):
           return keywords[word](line,d)
         else:
           return keywords[word](line)
-  return ""
+  return 0
