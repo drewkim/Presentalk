@@ -1,6 +1,5 @@
-The Requirements
- Passion for helping others develop their careers and develop professionally  Available to attend meetings each Tuesday at lunch  Available to attend bi-weekly leadership meetings (time TBD)  Available to support all CAPDS events, in attendance and in planning efforts  Professionalism as seen in application and in general
-communication--crucial that the team embodies the skills that CAPDS seeks to teach  Some preference given to those who have attended meetings consistently, but we will still look for the best person for the job  Open to creatively develop the club and its events
-6
+More Advanced Functionality
+ We've implemented computer vision using the Google Cloud Vision API so that we can jump to slides with certain pictures on them. Remember the dog on the Overview slide? Let's go to the slide with the dog.
+ Say you're a teacher and a student asks what Donald Trump looks like. We've integrated Google CSE (Custom Search Engine) API to help you pull images off the web right into your presentation. Show me Donald Trump.
 
 

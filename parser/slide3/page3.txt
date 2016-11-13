@@ -1,10 +1,6 @@
-Beginning Objectives for Next Year
- Maintain a website with career resources
- Plan and host second annual Career Workshop
- Host vocation workshop with larger number of students and volunteers
- Begin internship process in beginning of the year, develop resumes throughout, and make matches during regular hiring period
- Begin an online presence within
-
-4
+Overview
+ Web-based, voice-controlled presentations
+ Allows upload of a PDF file of your presentation
+ Gives mic access and uses voice commands to control the presentation
 
 

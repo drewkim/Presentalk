@@ -1,11 +1,8 @@
-Leadership Positions
- President: Oversees all club operations, responsible for public image of the club, present for all meetings, events, coordinated with club moderators
- Vice President: Assists President in all duties and steps in to president's role if need be  Career Workshop Director: Plans entirety of career workshop, coordinates with all guest speakers and presenters,
-organizes all logistics including schedules for each attendee  Internship Director: Creates opportunities by coordinating with potential alumni and parent employers, collects
-student resumes and provides feedback, matches students to employers, organizes process and sets guidelines  Meeting Director: Organizes all weekly meetings, sets learning curriculum and welcomes and seeks out all guest
-speakers  Recruitment and Marketing Director: Recruits all club members, maintains club roster, seeks to fill all club meetings
-and events with members, sets public image of the club through social media and on campus marketing  Community Engagement Director: Maintains database of all club contacts through alumni department, tracks
-engagement and interest and support across all parent and alumni supporters, develops professional working relationships with supporters  Open to other positions, by suggestion in your cover letter
-5
+Voice Control
+ Uses the Python SpeechRecognition library
+ Defaults to Google Speech Recognition API  Backup is IBM Watson Speech to Text
+ Thanks to multithreading, microphone is always active in the background
+ Commands require a trigger like "slide" to avoid accidentally changing slides
+ Can go forward, back, or to a specific slide number.
 
 

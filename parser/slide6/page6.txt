@@ -1,5 +1,6 @@
-Thank You
-Thanks for a great year and for supporting CAPDS. Good luck with finals!
-9
+More tech, more commands!
+ The PDFMiner and PyPDF2 packages scrape text and images from the slides to power the ML image search and text search, e.g. go to the slide titled Voice Control
+ Alternatively, search entire slides for text. E.g. Search for `computer vision.'  Flask framework connects JavaScript web infrastructure with the Python
+back-end  Regular expressions allow flexibility in vocal commands  Cat on the right too small? Zoom in on the picture of the cat.
 
 

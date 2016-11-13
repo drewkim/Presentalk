@@ -31,7 +31,7 @@ def go_to_image(line, d):
   index = line.find('go to')
   words = line.split()
   word = words[words.index('slide')+3]
-  return d[word]
+  return d.get(word, 0)
 
 def get_url(line):
   words = line.split()
@@ -43,7 +43,7 @@ def get_title(line, d): # return slide number with this title
   words = words[words.index('titled')+1:]
   for key in d.keys():
     if " ".join(words).lower().rstrip() in ' '.join(key.split()[0:10]).lower().rstrip(): # query only the first 10 words
-      return d[key]
+      return d.get(key, 0)
   return 0
 
 def search(line, d): # return first instance of slide with this text
@@ -51,7 +51,7 @@ def search(line, d): # return first instance of slide with this text
   words = words[words.index('search')+2:]
   for key in d.keys():
     if " ".join(words).lower() in key.lower():
-      return d[key]
+      return d.get(key,0)
   return 0
 
 def zoom(line, d): # given any picture, find its filepath
@@ -60,7 +60,7 @@ def zoom(line, d): # given any picture, find its filepath
     word = words[words.index('picture')+3]
   else:
     word = words[words.index('zoom')+4]
-  n = d[word]
+  n = d.get(word,1)
   os.system('cp parser/slide'+str(n)+'/*.jpg viewer/assets/'+word+'.jpg')
   return '/assets/'+word+'.jpg'
 

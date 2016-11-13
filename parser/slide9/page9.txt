@@ -1,0 +1,4 @@
+APIs, Libraries, etc.
+ Google Speech Recognition Library  PortAudio & PyAudio  IBM Watson Speech to Text Library  Google Cloud Vision API  PDFMiner, PyPDF2, XPDF  Flask Framework  Google CSE API  Google Cloud Speech API
+
+

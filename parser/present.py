@@ -82,7 +82,7 @@ def upload_file():
             print(filename)
             print(file_name)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            os.rename('/Users/Drew/Documents/School/Berkeley/year1/calhacks/CalHacksBowles2016/viewer/{0}'.format(filename), 'file.pdf')
+            os.rename('/Users/chanan/Documents/GitHub/CalHacksBowles2016/viewer/{0}'.format(filename), 'file.pdf')
             filename = 'file.pdf'
             file_name = 'file.pdf'
             # file.save(os.path.join(app.config['~/Documents/Github/CalHacksBowles2016/parser'], filename))
