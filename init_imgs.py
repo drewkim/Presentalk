@@ -8,7 +8,7 @@ def get():
 	with open('tmp.txt') as fh:
 		length = int(fh.readlines()[0].rstrip().lstrip())
 	for i in range(1, length+1):
-		os.system('ls parser/slide'+str(i)+' > tmp.txt')
+		os.system('ls parser/slide'+str(i)+'/*.jpg > tmp.txt')
 		with open('tmp.txt') as fh:
 			for line in fh:
 				filepath = 'parser/slide'+str(i)+'/'+line.rstrip()

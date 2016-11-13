@@ -46,11 +46,12 @@ def parse():
         output = PdfFileWriter()
         output.addPage(inputpdf.getPage(i))
         os.system('mkdir slide'+str(i+1))
-        with open("slide"+str(i+1)+"/page"+str(i+1)+".pdf", "wb") as outputStream: #slide1/page1.pdg
+        with open("slide"+str(i+1)+"/page"+str(i+1)+".pdf", "wb") as outputStream:
             output.write(outputStream)
     for i in range(1,inputpdf.numPages+1):
-        os.system('pdfimages -j slide'+str(i)+'/page'+str(i)+'.pdf slide'+str(i)+'/foo')
-        os.system('rm slide'+str(i)+'/page'+str(i)+'.pdf')
+        os.system('pdfimages -j slide'+str(i)+'/page'+str(i)+'.pdf slide'+str(i)+'/foo') # extract image
+        os.system('pdftotext slide'+str(i)+'/page'+str(i)+'.pdf') # extract text
+        #os.system('rm slide'+str(i)+'/page'+str(i)+'.pdf')
     print(words)
 
     return 'Success'

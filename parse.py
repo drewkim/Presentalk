@@ -1,5 +1,6 @@
 import voice
 import re
+import GoogleCSEGet
 
 # Command Functions
 def next_slide(line):
@@ -30,6 +31,27 @@ def go_to_image(line, d):
   words = line.split()
   word = words[words.index('slide')+3]
   return d[word]
+
+def get_url(line):
+  print('called!')
+  words = line.split()
+  relevant_words = words[words.index('show')+2:]
+  return GoogleCSEGet.get("%20".join(relevant_words))
+
+def get_title(line, d): # return slide number with this title
+  words = line.split()
+  words = words[words.index('titled')+1:]
+  for key in d.keys():
+    if " ".join(words) in key.split()[0:10]: # query only the first 10 words
+      return d[key]
+  return 0
+
+def search(line, d): # return first instance of slide with this text
+  
+  return 0
+
+def zoom(line):
+  return None
 
 
 # Returns an integer from a string
@@ -65,17 +87,32 @@ def text2int(textnum, numwords={}):
 
 
 trigger = 'slide'
+trigger2 = 'show'
+trigger3 = 'search'
 # regular expressions
-keywords = {'next': next_slide, 'forward': next_slide, 'last': back_slide, 'previous': back_slide,  'back a slide': back_slide, 'go.*to slide.*\d': go_to_slide, 'go to.*slide with the \w': go_to_image}
+keywords = {'next': next_slide,
+            'forward': next_slide,
+            'last': back_slide,
+            'previous': back_slide,
+            'back a slide': back_slide,
+            'go.*to slide.*\d': go_to_slide,
+            'go to.*slide with the \w': go_to_image,
+            'show me \w+':get_url,
+            'go to the slide titled \w+':get_title,
+            'search for \w+':search,
+            'zoom in to the picture':zoom}
 
 # Returns parsed voice command
-def parse(d):
+def parse(d1, d2):
   line = voice.send_words()
+  print(line)
   if line:
     for word in keywords.keys():
-      if re.search(word, line) and trigger in line:
+      if re.search(word, line) and (trigger in line or trigger2 in line or trigger3 in line):
         if word == 'go to.*slide with the \w':
-          return keywords[word](line,d)
+          return keywords[word](line,d1)
+        elif word == 'go to the slide titled \w+' or word == 'search for \w+':
+          return keywords[word](line,d2)
         else:
           return keywords[word](line)
   return 0
