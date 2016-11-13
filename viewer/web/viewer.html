@@ -78,16 +78,44 @@ See https://github.com/adobe-type-tools/cmap-resources
         //$("#outerContainer").hide();
         //$(".fancybox").fancybox();
 
+        var current_slide = -1;
+        var current_url = "";
+        $("#popup").hide();
+
         function updateSlide() {
           $.get("http://127.0.0.1:5000/display/", function(response) {
-              $.featherlight.close()
-              var data = JSON.parse(response)
-              window.location.hash = '#page=' + data["current_slide"]
-              if (data["url"] != null || data["url"].length > 0) {
-                $("#popup").attr("src", data["url"])
-                $.featherlight($("#popup")); 
+              //var data = JSON.parse(response)
+              new_slide = response["current_slide"];
+              new_url = response["url"];
+
+              if (new_slide != current_slide || current_url != new_url) {
+                $("#popup").hide();
+                $.featherlight.close();
+                window.location.hash = '#page=' + new_slide;
+                if (new_url.length > 0) {
+                  $("#popup").show();
+                  $("#popup").attr("src", new_url);
+                  $.featherlight($("#popup"));
+                }
+                current_slide = new_slide
+                current_url = new_url
               }
-              console.log(response); // server response
+              // if (current_url.length > 0) {
+              //   if (new_url != current_url) {
+              //     if (new_url.length > 0) {
+
+              //     }
+              //   }
+              // }
+              // window.location.hash = '#page=' + response["current_slide"]
+              // if (response["url"] != null  && response["url"].length > 0) {
+              //   console.log("hit")
+              //   $("#popup").attr("src", response["url"])
+              //   $.featherlight($("#popup")); 
+              // } else {
+              //   $.featherlight.close()
+              // }
+              // console.log(response); // server response
           });
         }
 
@@ -116,7 +144,9 @@ See https://github.com/adobe-type-tools/cmap-resources
     <!-- <a class="fancybox" rel="group" href="https://www.ocf.berkeley.edu/~atwu/firstcultural/ucbcampus/mainmap.gif"><img src="https://www.ocf.berkeley.edu/~atwu/firstcultural/ucbcampus/mainmap.gif" alt="" /></a> -->
 
     <!-- <a href="http://i.imgur.com/ryEEYQ8.png" data-featherlight="image"></a> -->
-    <img src="http://i.imgur.com/ryEEYQ8.png" id="popup" alt="" class="featherlight-image featherlight-inner" style="width: 910px; height: 637px;">
+    <!-- <img src="/assets/test.JPG" alt="" style="width: 910px; height: 637px;"> -->
+    <!-- <img src="../../test.JPG" alt="" style="width: 910px; height: 637px;"> -->
+    <img src="" id="popup" alt="" class="featherlight-image featherlight-inner" style="width: 910px; height: 637px;">
     <div id="outerContainer">
 
       <div id="sidebarContainer">
