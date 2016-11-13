@@ -1,6 +1,7 @@
 import voice
 import re
 import GoogleCSEGet
+import os
 
 # Command Functions
 def next_slide(line):
@@ -33,7 +34,6 @@ def go_to_image(line, d):
   return d[word]
 
 def get_url(line):
-  print('called!')
   words = line.split()
   relevant_words = words[words.index('show')+2:]
   return GoogleCSEGet.get("%20".join(relevant_words))
@@ -42,16 +42,24 @@ def get_title(line, d): # return slide number with this title
   words = line.split()
   words = words[words.index('titled')+1:]
   for key in d.keys():
-    if " ".join(words) in key.split()[0:10]: # query only the first 10 words
+    if " ".join(words).lower().rstrip() in ' '.join(key.split()[0:10]).lower().rstrip(): # query only the first 10 words
       return d[key]
   return 0
 
 def search(line, d): # return first instance of slide with this text
-  
+  words = line.split()
+  words = words[words.index('search')+2:]
+  for key in d.keys():
+    if " ".join(words).lower() in key.lower():
+      return d[key]
   return 0
 
-def zoom(line):
-  return None
+def zoom(line, d): # given any picture, find its filepath
+  words = line.split()
+  word = words[words.index('picture')+3]
+  n = d[word]
+  os.system('cp parser/slide'+str(n)+'/*.jpg viewer/assets/'+word+'.jpg')
+  return word+'.jpg'
 
 
 # Returns an integer from a string
@@ -100,7 +108,7 @@ keywords = {'next': next_slide,
             'show me \w+':get_url,
             'go to the slide titled \w+':get_title,
             'search for \w+':search,
-            'zoom in to the picture':zoom}
+            'zoom in.*picture of the':zoom}
 
 # Returns parsed voice command
 def parse(d1, d2):
@@ -109,7 +117,7 @@ def parse(d1, d2):
   if line:
     for word in keywords.keys():
       if re.search(word, line) and (trigger in line or trigger2 in line or trigger3 in line):
-        if word == 'go to.*slide with the \w':
+        if word == 'go to.*slide with the \w' or word == 'zoom in.*picture of the':
           return keywords[word](line,d1)
         elif word == 'go to the slide titled \w+' or word == 'search for \w+':
           return keywords[word](line,d2)

@@ -1,0 +1,4 @@
+Overview
+ Web-based, voice-controlled presentations  Allows upload of a PDF file of your presentation  Gives mic access and uses voice commands to control the presentation
+
+

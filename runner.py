@@ -21,9 +21,10 @@ class ThreadingExample(object):
         :type interval: int
         :param interval: Check interval, in seconds
         """
-        #self.images = init_imgs.get() # save API calls for now
-        self.images = {}
+        self.images = init_imgs.get() # save API calls for now
+        #self.images = {'dog':2, 'cat':4}
         self.text = init_text.get()
+        #self.text = {'Presentalk\nBy Graham, Chanan, Drew, Ryan, and Kyle\n\n\x0c':1, 'Voice Control\n Uses the Python SpeechRecognition library\n Defaults to Google Speech Recognition API  Backup is IBM Watson Speech to Text\n Thanks to multithreading, microphone is always active in the background  Commands require the trigger "slide" to avoid accidentally changing slides  Can go forward, back, or to a specific slide number  Examples:\n "Go back a slide"  "Go to the next slide"  "Go to slide number 4"\n\n\x0c':3}
         self.interval = interval
         thread = threading.Thread(target=self.run, args=())
         thread.daemon = True                            # Daemonize thread
@@ -37,8 +38,8 @@ class ThreadingExample(object):
             if type(current) == str:
                 self.d['url'] = current
             else:
-                self.d['url'] = ''
                 if current != 0:
+                    self.d['url'] = ''
                     if current == -1:
                 	    self.d['current_slide'] = self.d['current_slide'] + 1
                     elif current == -2:
@@ -46,7 +47,7 @@ class ThreadingExample(object):
                     else:
                         self.d['current_slide'] = current
                     time.sleep(self.interval)
-                print(self.d['current_slide'])
+                print(self.d['current_slide'], self.d['url'])
 
 
 example = ThreadingExample()

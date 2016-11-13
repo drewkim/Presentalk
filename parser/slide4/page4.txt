@@ -1,0 +1,4 @@
+More Advanced Functionality
+ We implemented computer vision using the Google Cloud Vision API so that we can jump to slides with certain pictures on them. Remember the dog on the Overview slide? Let's go to the slide with the dog.
+
+

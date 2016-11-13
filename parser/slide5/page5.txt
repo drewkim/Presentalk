@@ -1,0 +1,5 @@
+Other technologies
+ The PDFMiner package scrapes text and images from the slides to power the ML image search and text search, e.g. go to the Voice Control slide
+ Flask framework controls web infrastructure for the Python back-end  Commands are parsed using regular expressions
+
+
