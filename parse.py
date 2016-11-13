@@ -20,7 +20,9 @@ def go_to_slide(line):
     try:
       num = int(words[words.index('slide')+1]) # 'go to slide x'
     except:
-      num = '?'
+      num = 0
+  # print(line)
+  # print(num)
   return num
 
 def go_to_image(line, d):

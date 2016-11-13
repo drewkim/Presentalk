@@ -78,15 +78,27 @@ See https://github.com/adobe-type-tools/cmap-resources
       $(document).ready(function() {
 
         console.log("Test");
-        $(".fancybox").fancybox();
+        // $(".fancybox").hide();
+        //$("#outerContainer").hide();
+        //$(".fancybox").fancybox();
 
-        setTimeout(function(){
-          //$("#next").click();
-          //$("#pageNumber").val(4);
-          //$("#pageNumber").trigger("change");
-          window.location.hash = '#page=1';
-          //$("#presentationMode").trigger("click");
-        }, 2000);
+        function updateSlide() {
+          $.get("http://127.0.0.1:5000/display/", function(response) {
+              window.location.hash = '#page=' + response
+              console.log(response); // server response
+          });
+        }
+
+        window.setInterval(updateSlide, 1000);
+        updateSlide();
+
+        // setTimeout(function(){
+        //   //$("#next").click();
+        //   //$("#pageNumber").val(4);
+        //   //$("#pageNumber").trigger("change");
+        //   window.location.hash = '#page=1';
+        //   //$("#presentationMode").trigger("click");
+        // }, 2000);
 
       });
     </script>
@@ -98,9 +110,9 @@ See https://github.com/adobe-type-tools/cmap-resources
 
   <body tabindex="1" class="loadingInProgress">
 
-    <div id="outerContainer">
+    <a class="fancybox" rel="group" href="https://www.ocf.berkeley.edu/~atwu/firstcultural/ucbcampus/mainmap.gif"><img src="https://www.ocf.berkeley.edu/~atwu/firstcultural/ucbcampus/mainmap.gif" alt="" /></a>
 
-      <a class="fancybox" rel="group" href="https://www.ocf.berkeley.edu/~atwu/firstcultural/ucbcampus/mainmap.gif"><img src="https://www.ocf.berkeley.edu/~atwu/firstcultural/ucbcampus/mainmap.gif" alt="" /></a>
+    <div id="outerContainer">
 
       <div id="sidebarContainer">
         <div id="toolbarSidebar">

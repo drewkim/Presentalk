@@ -40,13 +40,16 @@ class ThreadingExample(object):
                 time.sleep(self.interval)
             print(self.current_slide)
 
-    
 
 example = ThreadingExample()
 
 @app.route('/display/')
 def display():
 	return jsonify(example.current_slide)
+
+# @app.route('/viewer/')
+# def viewer():
+#     return 'test'
 
 time.sleep(3)
 print('Checkpoint')
