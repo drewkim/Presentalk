@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
-UPLOAD_FOLDER = '/Users/Drew/Documents/School/Berkeley/year1/calhacks'
+UPLOAD_FOLDER = '/Users/Drew/Documents/School/Berkeley/year1/calhacks/CalHacksBowles2016/parser'
 ALLOWED_EXTENSIONS = set(['pdf'])
 
 app = Flask(__name__)
@@ -26,11 +26,19 @@ def parse():
             pg = int(line)
             words[pg] = lst
             lst = []
+
+            print("python2.7 split.py {0} {1}".format(file_name, pg))
+            os.system("python2.7 split.py {0} {1}".format(file_name, pg))
+            print("python2.7 extractor.py tmp/placeholder.pdf {1}".format(pg))
+            os.system("python2.7 extractor.py tmp/placeholder.pdf {1}".format(pg))
+
+
+
         except:
+            print("whaaaaat")
             lst += line.split()
     print(words)
 
-    os.system("python2.7 extractor.py {0}".format(file_name))
     return 'Success'
 
 

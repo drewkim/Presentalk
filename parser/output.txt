@@ -1,46 +1,137 @@
-Presentalk
+Learning Concepts
+What we covered:
 
-By Graham, Chanan, Drew, Ryan, and Kyle
+● Resume Building
+● Interviewing
+● LinkedIn
+● Vocation
+● Reaching Out, Maintaining 
 
-Overview
+Professional Contact
 
-● Web-based, voice-controlled presentations
-● Allows upload of a PDF file of your presentation
-● Gives mic access and uses voice commands to control the presentation
+● The Handshake
+● Body Language
+● Professional Emailing
+● Myers Briggs
 
-Voice Control
+What we didn’t cover:
 
-● Uses the Python SpeechRecognition library 
+● Expressing Gratitude
+● Cold Calling/Phone Calls
+● Lunch/Dinner Professional 
 
-○ Defaults to Google Speech Recognition API
-○ Backup is IBM Watson Speech to Text
+Etiquette
 
-● Thanks to multithreading, microphone is always active in the background
-● Commands require the trigger “slide” to avoid accidentally changing slides
-● Can go forward, back, or to a specific slide number
-● Examples: 
+● Making Conversation, Really 
 
-○
-○
-○
+Listening
 
-“Go back a slide”
-“Go to the next slide”
-“Go to slide number 4”
+● How to structure your career and 
 
-More Advanced Functionality
+prioritize different things
 
-● We implemented computer vision using the Google Cloud Vision API so that 
-we can jump to slides with certain pictures on them. Remember the dog on 
-the Overview slide? Let’s go to the slide with the dog.
+● Searching for jobs and internship 
 
-Other technologies
+opportunities
+● Anything else?
 
-● The PDFMiner package scrapes text and images from the slides to power the 
+2
 
-ML image search and text search, e.g. go to the Voice Control slide 
+Facts and Figures
+● 140+ parent and alumni supporters
+● 10+ crucial career skills taught
+● Meetings each Tuesday throughout the entire year
+● 15+ guest speakers lecturing about their careers
+● 10+ internships confirmed, others in the process
+● 130+ students expressed interest in club
+● 80 students, 40 volunteers at inaugural career 
 
-● Flask framework controls web infrastructure for the Python back-end
-● Commands are parsed using regular expressions
+workshop, ~30 different sessions to attend
+
+3
+
+Beginning Objectives for Next Year
+
+● Maintain a website with career 
+
+resources
+
+● Plan and host second annual 
+
+Career Workshop
+
+● Host vocation workshop with 
+larger number of students and 
+volunteers
+
+● Begin internship process in 
+
+beginning of the year, develop 
+resumes throughout, and make 
+matches during regular hiring 
+period
+
+● Begin an online presence within 
+
+Bellarmine to promote 
+
+4
+
+Leadership Positions
+●
+
+●
+
+●
+●
+
+President: Oversees all club operations, responsible for public image of the club, present for all meetings, events, 
+coordinated with club moderators
+Vice President: Assists President in all duties and steps in to president's role if need be
+Career Workshop Director: Plans entirety of career workshop, coordinates with all guest speakers and presenters, 
+organizes all logistics including schedules for each attendee
+Internship Director: Creates opportunities by coordinating with potential alumni and parent employers, collects 
+student resumes and provides feedback, matches students to employers, organizes process and sets guidelines
+● Meeting Director: Organizes all weekly meetings, sets learning curriculum and welcomes and seeks out all guest 
+
+speakers
+Recruitment and Marketing Director: Recruits all club members, maintains club roster, seeks to fill all club meetings 
+and events with members, sets public image of the club through social media and on campus marketing
+Community Engagement Director: Maintains database of all club contacts through alumni department, tracks 
+engagement and interest and support across all parent and alumni supporters, develops professional working 
+relationships with supporters
+Open to other positions, by suggestion in your cover letter
+
+●
+
+●
+
+●
+
+5
+
+The Requirements
+
+● Passion for helping others develop their careers and develop professionally
+● Available to attend meetings each Tuesday at lunch
+● Available to attend bi-weekly leadership meetings (time TBD)
+● Available to support all CAPDS events, in attendance and in planning efforts
+● Professionalism as seen in application and in general 
+
+communication—crucial that the team embodies the skills that CAPDS seeks 
+to teach
+
+● Some preference given to those who have attended meetings consistently, 
+
+but we will still look for the best person for the job
+● Open to creatively develop the club and its events
+
+6
+
+Thank You
+
+Thanks for a great year and for supporting CAPDS. Good luck with finals!
+
+9
 
 

@@ -1,6 +1,6 @@
 import sys
 
-def extract(file_name):
+def extract(file_name, pg):
     pdf = file(file_name, "rb").read()
 
     startmark = "\xff\xd8"
@@ -35,7 +35,9 @@ def extract(file_name):
         return_str += ('JPG %d from %d to %d' % (njpg, istart, iend)) + '\n'
 
         jpg = pdf[istart:iend]
-        jpgfile = file("extracted_images/jpg%d.jpg" % njpg, "wb")
+        # os.system("cd extracted_images mkdir p%d" % pg)
+        print('page number: %d' %pg)
+        jpgfile = file("extracted_images/%d/jpg%d.jpg" % (pg, njpg), "wb")
         jpgfile.write(jpg)
         jpgfile.close()
          
@@ -44,4 +46,4 @@ def extract(file_name):
 
     print(return_str)
 
-extract(sys.argv[1])
+extract(sys.argv[1], int(sys.argv[2]))
