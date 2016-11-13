@@ -55,9 +55,11 @@ def search(line, d): # return first instance of slide with this text
   return 0
 
 def zoom(line, d): # given any picture, find its filepath
-  print('called!')
   words = line.split()
-  word = words[words.index('picture')+3]
+  if 'picture' in words:
+    word = words[words.index('picture')+3]
+  else:
+    word = words[words.index('zoom')+4]
   n = d[word]
   os.system('cp parser/slide'+str(n)+'/*.jpg viewer/assets/'+word+'.jpg')
   return word+'.jpg'
@@ -110,7 +112,7 @@ keywords = {'next': next_slide,
             'show me \w+':get_url,
             'go to the slide titled \w+':get_title,
             'search for \w+':search,
-            'zoom in.*picture of the':zoom}
+            'zoom in.*the':zoom}
 
 # Returns parsed voice command
 def parse(d1, d2):
@@ -119,7 +121,7 @@ def parse(d1, d2):
   if line:
     for word in keywords.keys():
       if re.search(word, line) and (trigger in line or trigger2 in line or trigger3 in line or trigger4 in line):
-        if word == 'go to.*slide with the \w' or word == 'zoom in.*picture of the':
+        if word == 'go to.*slide with the \w' or word == 'zoom in.*the':
           return keywords[word](line,d1)
         elif word == 'go to the slide titled \w+' or word == 'search for \w+':
           return keywords[word](line,d2)
