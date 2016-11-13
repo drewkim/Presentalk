@@ -2,13 +2,13 @@ import voice
 import re
 
 # Command Functions
-def f1(line):
+def next_slide(line):
 	return -1
 
-def f2(line):
+def back_slide(line):
 	return -2
 
-def f3(line):
+def go_to_slide(line):
   index = line.find('go to')
   words = line.split()
   if 'slide number' in line: # account for 'go to slide number x'
@@ -23,7 +23,7 @@ def f3(line):
       num = '?'
   return num
 
-def f4(line, d):
+def go_to_image(line, d):
   index = line.find('go to')
   words = line.split()
   word = words[words.index('slide')+3]
@@ -64,7 +64,7 @@ def text2int(textnum, numwords={}):
 
 trigger = 'slide'
 # regular expressions
-keywords = {'next': f1, 'forward': f1, 'last': f2, 'previous': f2,  'back a slide': f2, 'go.*to slide.*\d': f3, 'go to.*slide with the \w': f4}
+keywords = {'next': next_slide, 'forward': next_slide, 'last': back_slide, 'previous': back_slide,  'back a slide': back_slide, 'go.*to slide.*\d': go_to_slide, 'go to.*slide with the \w': go_to_image}
 
 # Returns parsed voice command
 def parse(d):
