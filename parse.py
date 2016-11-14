@@ -58,6 +58,8 @@ def zoom(line, d): # given any picture, find its filepath
   words = line.split()
   if 'picture' in words:
     word = words[words.index('picture')+3]
+  elif 'into' in words:
+    word = words[words.index('into')+2]
   else:
     word = words[words.index('zoom')+4]
   n = d.get(word,1)
@@ -109,6 +111,7 @@ keywords = {'next': next_slide,
             'back a slide': back_slide,
             'go.*to slide.*\d': go_to_slide,
             'go to.*slide with the \w': go_to_image,
+            'go to.*slide with a \w': go_to_image,
             'show me \w+':get_url,
             'go to the slide titled \w+':get_title,
             'search for \w+':search,
@@ -117,11 +120,15 @@ keywords = {'next': next_slide,
 # Returns parsed voice command
 def parse(d1, d2):
   line = voice.send_words()
+  if line:
+    line = line.replace('fly', 'slide')
+    line = line.replace('flight', 'slide')
+    line = line.replace('line', 'slide')
   print(line)
   if line:
     for word in keywords.keys():
       if re.search(word, line) and (trigger in line or trigger2 in line or trigger3 in line or trigger4 in line):
-        if word == 'go to.*slide with the \w' or word == 'zoom in.*the':
+        if word == 'go to.*slide with the \w' or word == 'zoom in.*the' or word == 'go to.*slide with a \w':
           return keywords[word](line,d1)
         elif word == 'go to the slide titled \w+' or word == 'search for \w+':
           return keywords[word](line,d2)
