@@ -1,7 +1,11 @@
 # Presentalk
+Beautiful web-based, voice-controlled presentation software.
+
+[Demo Video](https://vimeo.com/191740931)
+[Devpost](https://devpost.com/software/presentalk-9mki1o)
+
 ## Inspiration 
 We wanted to make it easier to navigate presentations. Handheld clickers are useful for going to the next and last slide, but they are unable to skip to specific slides in the presentation. Also, we wanted to make it easier to pull up additional information like maps, charts, and pictures during a presentation without breaking the visual continuity of the presentation. To do that, we added the ability to search for and pull up images using voice commands, without leaving the presentation. 
-
 
 ## What it does
 Presentalk solves this problem with voice commands that allow you to  move forward and back, skip to specific slides and keywords, and go to specific images in your presentation using image recognition. 
