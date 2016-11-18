@@ -1,7 +1,7 @@
 # Presentalk
 Beautiful web-based, voice-controlled presentation software.
 
-[Demo Video](https://vimeo.com/191740931)
+[Demo Video](https://vimeo.com/191740931) <br />
 [Devpost](https://devpost.com/software/presentalk-9mki1o)
 
 ## Inspiration 
